@@ -66,12 +66,22 @@ class _ImageOtherInfoState extends State<ImageOtherInfo> {
               ],
             ),
             ProfileTextFeild(
+              validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     },
               onChanged: (v) {
                 controller.profileCreationModel.expectations = v;
               },
               labelText: "Expectations",
             ),
             ProfileTextFeild(
+              validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     },
               onChanged: (v) {
                 controller.profileCreationModel.otherInformation = v;
               },

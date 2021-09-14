@@ -23,7 +23,7 @@ class FamilyInformation extends StatelessWidget {
                       return "Please enter your father name";
                     }
                      if (!input.contains(" ")) {
-                      return "Please Enter Full name";
+                      return "Please enter full name";
                     }
                   },
                     onChanged: (value) {
@@ -37,6 +37,9 @@ class FamilyInformation extends StatelessWidget {
                      validator: (input) {
                     if (input!.isEmpty) {
                       return "Please enter your mother name";
+                    }
+                     if (!input.contains(" ")) {
+                      return "Please enter full name";
                     }
                      },
                     onChanged: (value) {
@@ -60,7 +63,7 @@ class FamilyInformation extends StatelessWidget {
                       value: controller.motherStatus),
                   Text("Brothers"),
                   ProfileTextFeild(
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.phone,
                      validator: (input) {
                     if (input!.isEmpty) {
                       return "Field is Empty";
@@ -76,6 +79,15 @@ class FamilyInformation extends StatelessWidget {
                     labelText: "Total brother",
                   ),
                   ProfileTextFeild(
+                    keyboardType: TextInputType.phone,
+                     validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                     },
                     onChanged: (v) {
                       controller.profileCreationModel.marriedBrothers =
                           int.parse(v);
@@ -83,6 +95,15 @@ class FamilyInformation extends StatelessWidget {
                     labelText: "Married",
                   ),
                   ProfileTextFeild(
+                    keyboardType: TextInputType.phone,
+                    validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                     },
                     onChanged: (v) {
                       controller.profileCreationModel.unmarriedBrothers =
                           int.parse(v);
@@ -91,6 +112,15 @@ class FamilyInformation extends StatelessWidget {
                   ),
                   Text("Sisters"),
                   ProfileTextFeild(
+                    keyboardType: TextInputType.phone,
+                    validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                     },
                     onChanged: (v) {
                       controller.profileCreationModel.noOfSisters =
                           int.parse(v);
@@ -98,6 +128,15 @@ class FamilyInformation extends StatelessWidget {
                     labelText: "Total Sisters",
                   ),
                   ProfileTextFeild(
+                    keyboardType: TextInputType.phone,
+                    validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                     },
                     onChanged: (v) {
                       controller.profileCreationModel.marriedSisters =
                           int.parse(v);
@@ -105,6 +144,15 @@ class FamilyInformation extends StatelessWidget {
                     labelText: "Married",
                   ),
                   ProfileTextFeild(
+                    keyboardType: TextInputType.phone,
+                    validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                     },
                     onChanged: (v) {
                       controller.profileCreationModel.unmarriedSisters =
                           int.parse(v);

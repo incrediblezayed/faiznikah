@@ -30,6 +30,15 @@ class PersonalInforMation extends StatelessWidget {
         child: Column(
           children: [
             ProfileTextFeild(
+               validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(" ")){
+                      return "Enter Full Name";
+                    }
+
+                     },
               onChanged: (value) {
                 controller.profileCreationModel.name = value;
               },
@@ -38,18 +47,40 @@ class PersonalInforMation extends StatelessWidget {
               labelText: 'Bride / Groom Name',
             ),
             ProfileTextFeild(
+               validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                    if(input.length<10){
+                      return "Phone number should be 10 digit";
+                    }
+                     },
               onChanged: (value) =>
                   controller.profileCreationModel.personalProfile = value,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.phone,
               icon: Icons.phone,
               hintText: 'Enter your phone number',
               labelText: 'Phone Number',
               maxLength: 10,
             ),
             ProfileTextFeild(
+               validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                    if(input.length<10){
+                      return "WhatsApp number should be 10 digit";
+                    }
+                     },
               onChanged: (value) =>
                   controller.profileCreationModel.wphone = value,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.phone,
               icon: FontAwesomeIcons.whatsapp,
               hintText: 'Enter your WhatsApp Number',
               labelText: 'WhatsApp Number',
@@ -113,17 +144,41 @@ class PersonalInforMation extends StatelessWidget {
               ),
             ),
             ProfileTextFeild(
+               validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(" ")){
+                      return "Enter full address";
+                    }
+                     },
               onChanged: (v) {
                 controller.profileCreationModel.address = v;
               },
               labelText: "Address",
             ),
             ProfileTextFeild(
+              validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     },
               onChanged: (value) {
                 controller.profileCreationModel.hobbies = value;
               },
               labelText: "Hobbies",
-            )
+            ),
+            ProfileTextFeild(
+              validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                     },
+              onChanged: (value) {
+                controller.profileCreationModel.education = value;
+              },
+              labelText: "Education",
+            ),
           ],
         ),
       ),

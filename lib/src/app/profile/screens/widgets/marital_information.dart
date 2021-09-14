@@ -40,6 +40,15 @@ class MaritalInformation extends StatelessWidget {
                       Container(
                         width: 70,
                         child: ProfileTextFeild(
+                          validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+
+                     },
                           onChanged: (v) => controller
                               .profileCreationModel.noOfBoys = int.parse(v),
                           keyboardType: TextInputType.phone,
@@ -59,6 +68,15 @@ class MaritalInformation extends StatelessWidget {
                       Container(
                         width: 70,
                         child: ProfileTextFeild(
+                           validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+
+                     },
                           onChanged: (v) =>
                               controller.profileCreationModel.boysAges = v,
                           keyboardType: TextInputType.phone,
@@ -78,6 +96,15 @@ class MaritalInformation extends StatelessWidget {
                       Container(
                         width: 70,
                         child: ProfileTextFeild(
+                           validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+
+                     },
                           onChanged: (v) => controller
                               .profileCreationModel.noOfGirls = int.parse(v),
                           keyboardType: TextInputType.phone,
@@ -97,6 +124,15 @@ class MaritalInformation extends StatelessWidget {
                       Container(
                         width: 70,
                         child: ProfileTextFeild(
+                           validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+
+                     },
                           onChanged: (v) =>
                               controller.profileCreationModel.girlsAges = v,
                           keyboardType: TextInputType.phone,
