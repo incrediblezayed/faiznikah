@@ -9,6 +9,7 @@ class ProfileTextFeild extends TextFormField {
     TextInputType? keyboardType,
     InputDecoration? decoration,
     int? maxLength,
+    String? Function(String?)? validator,
     Function()? onTap,
     TextEditingController? controller,
     String? suffix,
@@ -19,6 +20,7 @@ class ProfileTextFeild extends TextFormField {
           controller: controller,
           onTap: onTap,
           maxLength: maxLength,
+          validator: validator,
           textInputAction: TextInputAction.next,
           keyboardType: keyboardType,
           decoration: decoration ??
