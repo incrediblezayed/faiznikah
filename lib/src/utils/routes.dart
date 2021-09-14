@@ -1,3 +1,8 @@
+import 'package:faiznikah/src/app/static/screens/advertisement.dart';
+import 'package:faiznikah/src/app/static/screens/blog.dart';
+import 'package:faiznikah/src/app/static/screens/contactus.dart';
+import 'package:faiznikah/src/app/static/screens/event.dart';
+import 'package:faiznikah/src/app/static/screens/successstories.dart';
 import 'package:faiznikah/src/utils/globals.dart';
 import 'screen_index.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,6 +30,16 @@ class AppRoutes extends Globals {
             return AboutUsPage();
           case PrivacyPolicyPage.id:
             return PrivacyPolicyPage();
+          case Blog.id:
+            return Blog();
+          case Events.id:
+            return Events();
+          case SuccessStories.id:
+            return SuccessStories();
+          case Advertisement.id:
+            return Advertisement();
+          case ContactUs.id:
+            return ContactUs();
           default:
             return Home();
         }

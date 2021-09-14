@@ -1,10 +1,8 @@
 import 'package:faiznikah/src/app/profile/profile_controller.dart';
-import 'package:faiznikah/src/widgets/profile_creation_form_field.dart';
-import 'package:faiznikah/src/widgets/profile_creation_option_row.dart';
 import 'package:faiznikah/src/widgets/state_district_dropdown.dart';
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
+
+import 'index.dart';
 
 class PersonalInforMation extends StatelessWidget {
   const PersonalInforMation({Key? key, required this.controller})

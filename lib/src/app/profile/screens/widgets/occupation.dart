@@ -1,6 +1,6 @@
 import 'package:faiznikah/src/app/profile/profile_controller.dart';
-import 'package:faiznikah/src/widgets/profile_creation_form_field.dart';
-import 'package:flutter/material.dart';
+
+import 'index.dart';
 
 class Occupation extends StatelessWidget {
   const Occupation({Key? key, required this.controller}) : super(key: key);

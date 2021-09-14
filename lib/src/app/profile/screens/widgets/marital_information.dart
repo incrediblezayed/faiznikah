@@ -1,8 +1,5 @@
 import 'package:faiznikah/src/app/profile/profile_controller.dart';
-import 'package:faiznikah/src/widgets/profile_creation_form_field.dart';
-import 'package:faiznikah/src/widgets/profile_creation_option_row.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'index.dart';
 
 class MaritalInformation extends StatelessWidget {
   final ProfileController controller;

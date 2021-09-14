@@ -1,8 +1,11 @@
+import 'package:faiznikah/src/utils/hive_data_helper.dart';
 import 'package:faiznikah/src/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Globals {
+  final HiveDataHelper hiveDataHelper = Get.find();
+  
   final Params params = Params();
 
   bool checkImage(String? image) {

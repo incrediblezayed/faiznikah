@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:faiznikah/src/widgets/full_screen_image.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'index.dart';
 
 class ProfileImagePicker extends StatefulWidget {
   const ProfileImagePicker(

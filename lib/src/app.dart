@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:faiznikah/src/app/home/screens/home.dart';
 import 'package:faiznikah/src/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(fontFamily: 'Raleway'),
+      theme: ThemeData(
+          fontFamily: 'Raleway',
+          pageTransitionsTheme: PageTransitionsTheme(builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          })),
       onGenerateRoute: AppRoutes().onGenerateRoute,
       initialRoute: Home.id,
     );

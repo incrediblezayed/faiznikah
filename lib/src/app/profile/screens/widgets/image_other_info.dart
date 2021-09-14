@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:faiznikah/src/app/profile/profile_controller.dart';
-import 'package:faiznikah/src/app/profile/screens/widgets/image_picker.dart';
-import 'package:faiznikah/src/widgets/profile_creation_form_field.dart';
-import 'package:flutter/material.dart';
+
+import 'index.dart';
 
 class ImageOtherInfo extends StatefulWidget {
   const ImageOtherInfo({Key? key, required this.controller}) : super(key: key);

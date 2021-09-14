@@ -1,6 +1,9 @@
+import 'package:faiznikah/src/app/home/home_services.dart';
 import 'package:faiznikah/src/models/user_model.dart';
 import 'package:faiznikah/src/utils/globals.dart';
 import 'package:faiznikah/src/utils/screen_index.dart';
+import 'package:faiznikah/src/widgets/appbar.dart';
+import 'package:faiznikah/src/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,15 +14,26 @@ class Home extends StatelessWidget with Globals {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: TextButton(
-            onPressed: () {
-              Get.toNamed(ProfileCreationPage.id, arguments: {
-                params.userParam: User.empty(),
-                params.isPremiumParam: false
-              });
-            },
-            child: const Text("Profile")),
+      endDrawer: AppDrawer(),
+      appBar: FaizNikahAppBar(),
+      body: Container(
+        child: FutureBuilder<List<User>>(
+          future: HomeService().getFullUser(),
+          builder: (context, snapshot) {
+            if (snapshot.data != null) {
+              return ListView(
+                shrinkWrap: true,
+                children: snapshot.data!
+                    .map((e) => ListTile(
+                          title: Text(e.personalProfile),
+                        ))
+                    .toList(),
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          },
+        ),
       ),
     );
   }
