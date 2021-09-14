@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ProfileTextFeild extends TextFormField {
   ProfileTextFeild({
@@ -12,6 +13,7 @@ class ProfileTextFeild extends TextFormField {
     String? Function(String?)? validator,
     Function()? onTap,
     TextEditingController? controller,
+    List<TextInputFormatter>? inputFormatters,
     String? suffix,
     bool enabled = true,
   }) : super(
@@ -21,6 +23,7 @@ class ProfileTextFeild extends TextFormField {
           onTap: onTap,
           maxLength: maxLength,
           validator: validator,
+          inputFormatters: inputFormatters,
           textInputAction: TextInputAction.next,
           keyboardType: keyboardType,
           decoration: decoration ??

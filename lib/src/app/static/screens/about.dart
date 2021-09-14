@@ -1,6 +1,7 @@
 import 'package:faiznikah/src/models/team_user_model.dart';
 import 'package:faiznikah/src/utils/theme.dart';
 import 'package:faiznikah/src/widgets/about_team_info.dart';
+import 'package:faiznikah/src/widgets/appbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -9,15 +10,6 @@ class AboutUsPage extends StatelessWidget {
   Widget singleChildScrollView() => SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 60,
-              color: AppColors.secondColor,
-              child: const Center(
-                  child: Text(
-                'ABOUT US',
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              )),
-            ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
@@ -69,6 +61,10 @@ class AboutUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: singleChildScrollView());
+    return Scaffold(
+        appBar: FaizNikahAppBar(
+          text: "About Us",
+        ),
+        body: singleChildScrollView());
   }
 }

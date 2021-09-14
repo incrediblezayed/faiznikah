@@ -21,7 +21,7 @@ class AppRoutes extends Globals {
                 user: args[params.userParam],
                 isPremiumUser: args[params.isPremiumParam]);
           case AuthenticationPage.id:
-            return const AuthenticationPage();
+            return AuthenticationPage();
           case ProfileCreationPage.id:
             return ProfileCreationPage();
           case AllProfilePage.id:

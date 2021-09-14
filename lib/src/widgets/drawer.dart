@@ -19,6 +19,11 @@ class AppDrawer extends StatelessWidget with Globals {
   final AuthenticationController authenticationController = Get.find();
   AppDrawer();
   User? get user => hiveDataHelper.getUser();
+  void openPage(String id) {
+    Get.back();
+    Get.toNamed(id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -45,7 +50,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.back();
+              Get.offAllNamed(Home.id);
             },
             title: Text(
               "Home",
@@ -61,7 +66,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.toNamed(AllProfilePage.id);
+              openPage(AllProfilePage.id);
             },
             title: Text(
               "All Profile",
@@ -78,7 +83,7 @@ class AppDrawer extends StatelessWidget with Globals {
                 color: Colors.white,
               ),
               onTap: () async {
-                Get.toNamed(AuthenticationPage.id);
+                openPage(AuthenticationPage.id);
               },
               title: Text(
                 "Login/Register",
@@ -94,7 +99,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.toNamed(Blog.id);
+              openPage(Blog.id);
             },
             title: Text(
               "BLOGS",
@@ -126,7 +131,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.toNamed(Advertisement.id);
+              openPage(Advertisement.id);
 
               /// Navigator.of(context).pushNamed(MyRoutes.advertisementRoute);
             },
@@ -144,7 +149,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.toNamed(SuccessStories.id);
+              openPage(SuccessStories.id);
               // Navigator.of(context).pushNamed(MyRoutes.successstoriesRoute);
             },
             title: Text(
@@ -161,7 +166,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.toNamed(AboutUsPage.id);
+              openPage(AboutUsPage.id);
               //Navigator.of(context).pushNamed(MyRoutes.aboutusRoute);
             },
             title: Text(
@@ -178,7 +183,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.toNamed(ContactUs.id);
+              openPage(ContactUs.id);
               //Navigator.of(context).pushNamed(MyRoutes.contactusRoute);
             },
             title: Text(
