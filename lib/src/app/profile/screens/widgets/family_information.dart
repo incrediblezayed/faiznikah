@@ -18,6 +18,14 @@ class FamilyInformation extends StatelessWidget {
                 children: [
                   Text("Parents"),
                   ProfileTextFeild(
+                    validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Please enter your father name";
+                    }
+                     if (!input.contains(" ")) {
+                      return "Please Enter Full name";
+                    }
+                  },
                     onChanged: (value) {
                       controller.profileCreationModel.fatherName = value;
                     },
@@ -26,6 +34,11 @@ class FamilyInformation extends StatelessWidget {
                     labelText: 'Father Name',
                   ),
                   ProfileTextFeild(
+                     validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Please enter your mother name";
+                    }
+                     },
                     onChanged: (value) {
                       controller.profileCreationModel.motherName = value;
                     },
@@ -47,6 +60,15 @@ class FamilyInformation extends StatelessWidget {
                       value: controller.motherStatus),
                   Text("Brothers"),
                   ProfileTextFeild(
+                    keyboardType: TextInputType.number,
+                     validator: (input) {
+                    if (input!.isEmpty) {
+                      return "Field is Empty";
+                    }
+                    if(!input.contains(RegExp(r'[0-9]'))){
+                      return "Enter only Digit";
+                    }
+                     },
                     onChanged: (v) {
                       controller.profileCreationModel.noOfBrothers =
                           int.parse(v);
