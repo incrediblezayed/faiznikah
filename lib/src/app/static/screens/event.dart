@@ -1,3 +1,4 @@
+import 'package:faiznikah/src/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
 class Events extends StatelessWidget {
@@ -6,6 +7,11 @@ class Events extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: FaizNikahAppBar(
+        hasImage: false,
+        text: "Events",
+      ),
+    );
   }
 }

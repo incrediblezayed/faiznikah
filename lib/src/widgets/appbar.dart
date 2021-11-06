@@ -17,56 +17,62 @@ class FaizNikahAppBar extends StatelessWidget implements PreferredSizeWidget {
     return SafeArea(
       child: Container(
         color: color,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 10,
-            ),
-            if (hasImage)
-              Image.asset(
-                'assets/appicon/app_icon.png',
-                height: kToolbarHeight + 10,
-              )
-            else if (Navigator.canPop(context))
-              IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(Icons.arrow_back))
-            else
-              Spacer(),
-            SizedBox(
-              width: 10,
-            ),
-            Container(
-              alignment: Alignment.center,
-              height: kToolbarHeight,
-              child: FittedBox(
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    color: AppColors.firstColor,
+        child: Material(
+          
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 10,
+              ),
+              if (hasImage)
+                Image.asset(
+                  'assets/appicon/app_icon.png',
+                  height: kToolbarHeight + 10,
+                )
+              else if (Navigator.canPop(context))
+                IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: AppColors.firstColor,
+                    ))
+              else
+                Spacer(),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: kToolbarHeight,
+                child: FittedBox(
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      color: AppColors.firstColor,
+                    ),
+                    textScaleFactor: 1.5,
                   ),
-                  textScaleFactor: 1.5,
                 ),
               ),
-            ),
-            Spacer(),
-            if (Scaffold.of(context).hasDrawer ||
-                Scaffold.of(context).hasEndDrawer)
-              IconButton(
-                  onPressed: () {
-                    if (Scaffold.of(context).hasDrawer) {
-                      Scaffold.of(context).openDrawer();
-                    }
-                    if (Scaffold.of(context).hasEndDrawer) {
-                      Scaffold.of(context).openEndDrawer();
-                    }
-                  },
-                  icon: Icon(Icons.menu)),
-          ],
+              Spacer(),
+              if (Scaffold.of(context).hasDrawer ||
+                  Scaffold.of(context).hasEndDrawer)
+                IconButton(
+                    onPressed: () {
+                      if (Scaffold.of(context).hasDrawer) {
+                        Scaffold.of(context).openDrawer();
+                      }
+                      if (Scaffold.of(context).hasEndDrawer) {
+                        Scaffold.of(context).openEndDrawer();
+                      }
+                    },
+                    icon: Icon(Icons.menu)),
+            ],
+          ),
         ),
       ),
     );

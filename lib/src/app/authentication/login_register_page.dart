@@ -11,6 +11,7 @@ class AuthenticationPage extends StatelessWidget {
   final AuthenticationController controller = Get.find();
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: FaizNikahAppBar(
@@ -55,7 +56,7 @@ class AuthenticationPage extends StatelessWidget {
                   child: AnimatedContainer(
                       height: 40,
                       alignment: Alignment.center,
-                      width: controller.inProgress ? 40 : 70,
+                      width: controller.inProgress ? 40 : size.width * 0.2,
                       padding: EdgeInsets.all(10),
                       margin: EdgeInsets.all(10),
                       decoration: ShapeDecoration(
@@ -78,10 +79,12 @@ class AuthenticationPage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Obx(() => AnimatedSwitcher(
-                  duration: Duration(milliseconds: 800),
-                  child: controller.otpSent
-                      ? Row(
+            Obx(() => controller.otpSent
+                ? Column(
+                    children: [
+                      AnimatedSwitcher(
+                        duration: Duration(milliseconds: 800),
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -125,9 +128,39 @@ class AuthenticationPage extends StatelessWidget {
                                 ),
                               ),
                           ],
-                        )
-                      : Container(),
-                ))
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          controller.getOtp();
+                        },
+                        child: AnimatedContainer(
+                            height: 40,
+                            alignment: Alignment.center,
+                            width: controller.verifyingOtp ? 40 : 70,
+                            padding: EdgeInsets.all(10),
+                            margin: EdgeInsets.all(10),
+                            decoration: ShapeDecoration(
+                                shape: StadiumBorder(),
+                                color: AppColors.firstColor),
+                            duration: Duration(milliseconds: 300),
+                            child: controller.verifyingOtp
+                                ? SizedBox(
+                                    height: 20,
+                                    width: 20,
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                      strokeWidth: 2,
+                                    ),
+                                  )
+                                : Text(
+                                    "Verify",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                      ),
+                    ],
+                  )
+                : Container())
           ],
         ),
       ),

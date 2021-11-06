@@ -16,25 +16,7 @@ class Home extends StatelessWidget with Globals {
     return Scaffold(
       endDrawer: AppDrawer(),
       appBar: FaizNikahAppBar(),
-      body: Container(
-        child: FutureBuilder<List<User>>(
-          future: HomeService().getFullUser(),
-          builder: (context, snapshot) {
-            if (snapshot.data != null) {
-              return ListView(
-                shrinkWrap: true,
-                children: snapshot.data!
-                    .map((e) => ListTile(
-                          title: Text(e.personalProfile),
-                        ))
-                    .toList(),
-              );
-            } else {
-              return CircularProgressIndicator();
-            }
-          },
-        ),
-      ),
+      body: Container(),
     );
   }
 }

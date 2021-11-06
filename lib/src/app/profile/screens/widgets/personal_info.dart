@@ -30,15 +30,16 @@ class PersonalInforMation extends StatelessWidget {
         child: Column(
           children: [
             ProfileTextFeild(
-               validator: (input) {
-                    if (input!.isEmpty) {
-                      return "Field is Empty";
-                    }
-                    if(!input.contains(" ")){
-                      return "Enter Full Name";
-                    }
-
-                     },
+              controller: TextEditingController(
+                  text: controller.profileCreationModel.name),
+              validator: (input) {
+                if (input!.isEmpty) {
+                  return "Field is Empty";
+                }
+                if (!input.contains(" ")) {
+                  return "Enter Full Name";
+                }
+              },
               onChanged: (value) {
                 controller.profileCreationModel.name = value;
               },
@@ -47,17 +48,19 @@ class PersonalInforMation extends StatelessWidget {
               labelText: 'Bride / Groom Name',
             ),
             ProfileTextFeild(
-               validator: (input) {
-                    if (input!.isEmpty) {
-                      return "Field is Empty";
-                    }
-                    if(!input.contains(RegExp(r'[0-9]'))){
-                      return "Enter only Digit";
-                    }
-                    if(input.length<10){
-                      return "Phone number should be 10 digit";
-                    }
-                     },
+              controller: TextEditingController(
+                  text: controller.profileCreationModel.personalProfile),
+              validator: (input) {
+                if (input!.isEmpty) {
+                  return "Field is Empty";
+                }
+                if (!input.contains(RegExp(r'[0-9]'))) {
+                  return "Enter only Digit";
+                }
+                if (input.length < 10) {
+                  return "Phone number should be 10 digit";
+                }
+              },
               onChanged: (value) =>
                   controller.profileCreationModel.personalProfile = value,
               keyboardType: TextInputType.phone,
@@ -67,17 +70,19 @@ class PersonalInforMation extends StatelessWidget {
               maxLength: 10,
             ),
             ProfileTextFeild(
-               validator: (input) {
-                    if (input!.isEmpty) {
-                      return "Field is Empty";
-                    }
-                    if(!input.contains(RegExp(r'[0-9]'))){
-                      return "Enter only Digit";
-                    }
-                    if(input.length<10){
-                      return "WhatsApp number should be 10 digit";
-                    }
-                     },
+              controller: TextEditingController(
+                  text: controller.profileCreationModel.wphone),
+              validator: (input) {
+                if (input!.isEmpty) {
+                  return "Field is Empty";
+                }
+                if (!input.contains(RegExp(r'[0-9]'))) {
+                  return "Enter only Digit";
+                }
+                if (input.length < 10) {
+                  return "WhatsApp number should be 10 digit";
+                }
+              },
               onChanged: (value) =>
                   controller.profileCreationModel.wphone = value,
               keyboardType: TextInputType.phone,
@@ -135,6 +140,8 @@ class PersonalInforMation extends StatelessWidget {
                 visible: controller.physicalStatus.value !=
                     controller.physicalStatusList.first,
                 child: ProfileTextFeild(
+                  controller: TextEditingController(
+                      text: controller.profileCreationModel.handicapDetail),
                   onChanged: (v) {
                     controller.profileCreationModel.handicapDetail = v;
                   },
@@ -144,41 +151,40 @@ class PersonalInforMation extends StatelessWidget {
               ),
             ),
             ProfileTextFeild(
-               validator: (input) {
-                    if (input!.isEmpty) {
-                      return "Field is Empty";
-                    }
-                    if(!input.contains(" ")){
-                      return "Enter full address";
-                    }
-                     },
+              controller: TextEditingController(
+                  text: controller.profileCreationModel.address),
+              validator: (input) {
+                if (input!.isEmpty) {
+                  return "Field is Empty";
+                }
+                if (!input.contains(" ")) {
+                  return "Enter full address";
+                }
+              },
               onChanged: (v) {
                 controller.profileCreationModel.address = v;
               },
               labelText: "Address",
             ),
             ProfileTextFeild(
+              controller: TextEditingController(
+                  text: controller.profileCreationModel.hobbies),
               validator: (input) {
-                    if (input!.isEmpty) {
-                      return "Field is Empty";
-                    }
-                     },
+                if (input!.isEmpty) {
+                  return "Field is Empty";
+                }
+              },
               onChanged: (value) {
                 controller.profileCreationModel.hobbies = value;
               },
               labelText: "Hobbies",
             ),
-            ProfileTextFeild(
-              validator: (input) {
-                    if (input!.isEmpty) {
-                      return "Field is Empty";
-                    }
-                     },
-              onChanged: (value) {
-                controller.profileCreationModel.education = value;
-              },
-              labelText: "Education",
-            ),
+            ProfileCreationOptionRow(
+                onTap: () {
+                  controller.selectEducation();
+                },
+                name: "Education",
+                value: controller.education),
           ],
         ),
       ),

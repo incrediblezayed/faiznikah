@@ -22,7 +22,7 @@ class _ProfileCreationPageState extends State<ProfileCreationPage>
   List<Widget> getWidgets(ProfileController controller) => [
         PersonalInforMation(controller: controller),
         MaritalInformation(controller: controller),
-        FamilyInformation(controller: controller),
+        FamilyfInformation(controller: controller),
         Occupation(controller: controller),
         ImageOtherInfo(controller: controller),
       ];

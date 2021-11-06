@@ -220,6 +220,27 @@ class ProfileController extends GetxController with Globals {
     }
   }
 
+  late RxString education = educationList.first.obs;
+  List<String> educationList = [
+    'Below 10th Pass',
+    '10th Pass',
+    '12th Pass',
+    'Graduation',
+    'Post Graduation',
+    'Others',
+  ];
+
+  void selectEducation() async {
+    await getBottomSheet(
+        list: educationList, onTap: setEducation, value: education);
+  }
+
+  void setEducation(String? value) {
+    if (value != null) {
+      profileCreationModel.education = value;
+    }
+  }
+
   RxInt unMarriedBrother = 0.obs;
   RxInt unMarriedSister = 0.obs;
 

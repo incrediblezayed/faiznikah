@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:faiznikah/src/app/profile/screens/widgets/index.dart';
 import 'package:faiznikah/src/models/user_model.dart';
 import 'package:faiznikah/src/utils/api_services.dart';
 import 'package:http/http.dart' as http;

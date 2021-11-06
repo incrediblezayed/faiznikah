@@ -64,6 +64,7 @@ class AboutUsPage extends StatelessWidget {
     return Scaffold(
         appBar: FaizNikahAppBar(
           text: "About Us",
+          hasImage: false,
         ),
         body: singleChildScrollView());
   }

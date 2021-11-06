@@ -66,7 +66,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              openPage(AllProfilePage.id);
+              openPage(ProfileCreationPage.id);
             },
             title: Text(
               "All Profile",
@@ -115,7 +115,7 @@ class AppDrawer extends StatelessWidget with Globals {
               color: Colors.white,
             ),
             onTap: () {
-              Get.to(Events.id);
+              openPage(Events.id);
             },
             title: Text(
               "EVENT PAGE",
